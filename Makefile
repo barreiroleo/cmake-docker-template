@@ -1,8 +1,16 @@
 all: build run
 
 build:
-	mkdir -p build
-	clang++ src/main.cpp -o build/main
+	cmake . -B build
+	cd build && $(MAKE)
 
 run:
-	./build/main
+	./build/bin/clang-ci
+
+docker: docker-build docker-run
+
+docker-run:
+	docker run clang-build
+
+docker-build:
+	docker buildx build -t clang-build .
