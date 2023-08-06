@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../lib/lib.hpp"
+#include <library.hpp>
 
 int main(int argc, char *argv[]) {
     std::cout << "Hello from docker\n";

@@ -1,9 +1,11 @@
 FROM ubuntu:22.04 AS builder
-
 RUN apt-get update && apt-get --no-install-recommends -y install git cmake make clang
 WORKDIR /app
 COPY . .
 RUN make build
+
+FROM scratch AS json_export
+COPY --from=builder /app/build/compile_commands.json /
 
 FROM ubuntu:22.04
 ENV APPDIR=/app
