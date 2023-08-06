@@ -1,6 +1,8 @@
-#include <cstdio>
+#include <iostream>
+#include "../lib/lib.hpp"
 
 int main(int argc, char *argv[]) {
-    printf("Hello from docker\n");
+    std::cout << "Hello from docker\n";
+    lib::test_lib();
     return 0;
 }
